@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # namespace adds a url prefix which generates GET /api/v1/restaurants
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :restaurants, only: [ :index, :show, :update ]
+      resources :restaurants, only: [ :index, :show, :update, :create ]
     end
   end
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
