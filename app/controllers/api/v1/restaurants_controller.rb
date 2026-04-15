@@ -1,5 +1,5 @@
 class Api::V1::RestaurantsController < Api::V1::BaseController
-  before_action :set_restaurant, only: [ :show, :update ]
+  before_action :set_restaurant, only: [ :show, :update, :destroy ]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
@@ -27,6 +27,11 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
     else
       render_error
     end
+  end
+
+  def destroy
+    @restaurant.destroy
+    render json: { message: "Restaurant deleted" }
   end
 
   private

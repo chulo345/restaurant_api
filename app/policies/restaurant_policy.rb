@@ -25,4 +25,9 @@ class RestaurantPolicy < ApplicationPolicy
     #any logged_in user can create a restaurant
     !user.nil?
   end
+
+  def destroy?
+    # only restaurant owners can delete it
+    update?
+  end
 end
